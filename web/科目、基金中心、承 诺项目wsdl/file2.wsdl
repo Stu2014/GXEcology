@@ -1,0 +1,2658 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="urn:JSGX_MDM_FICOTRVi" xmlns:tns="urn:JSGX_MDM_FICOTRWsd/JSGX_MDM_FICOTRVi" targetNamespace="urn:JSGX_MDM_FICOTRWsd/JSGX_MDM_FICOTRVi"><UsingPolicy xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+<wsdl:types>
+<xs:schema xmlns:s0="urn:com.sap.mdm.core.base" xmlns:tns="urn:com.sap.mdm.ws.beans" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.mdm.ws.beans">
+<xs:import namespace="urn:com.sap.mdm.core.base"/>
+<xs:complexType name="KeywordConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="TextCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:TextConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="TextConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CreateConfigurationParameters">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="checkoutAsNew" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="BasicRecordIdentification">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="BasicRecordIdentificationWithKeyMapping">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="keyMapping" nillable="true" type="tns:KeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="KeyMapping">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="remoteSystem" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="remoteKey" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="MultilingualText">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="text" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="language" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="NumericCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:NumericConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="NumericConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:double"/>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ResultDefinition">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="fieldListType" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="regionalLayer" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="retrieveKeyMapping" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="loadAttributes" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="filterQualifiedLinks" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="loadTupleValues" nillable="true" type="xs:boolean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldDefinition" nillable="true" type="tns:FieldDefinition"/>
+<xs:element minOccurs="0" name="pageNumber" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="pageSize" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="sortDefinition" nillable="true" type="tns:SortDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FieldDefinition">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="fieldCode" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="SortDefinition">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="sortField" nillable="true" type="tns:SortField"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="SortField">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="fieldCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isAscending" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="attribute" nillable="true" type="tns:AttributeID"/>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:AttributeValueCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="rating" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeValueCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:AttributeValueConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeValueConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="value" nillable="true" type="tns:AttributeValueValue"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeValueValue">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="language" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="unit" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="PicklistConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="tns:RecordIdentifierConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="RecordIdentifierConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="keyMappingConstraint" nillable="true" type="tns:KeyMappingConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="KeyMappingConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="remoteSystem" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="remoteKey" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="PicklistCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:PicklistConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ExecutionStatus">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dataObject" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fault" nillable="true" type="tns:Fault"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Fault">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="severity" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="text" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="UpdateConfigurationParameters">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="applyNullValuesToMdm" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="NameValuePair">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="attribute" nillable="true" type="tns:AttributeID"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attributeValue" nillable="true" type="tns:AttributeValue"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AttributeValue">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="tns:AttributeValueValue"/>
+<xs:element minOccurs="0" name="keyMapping" nillable="true" type="tns:KeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DateTimeCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:DateTimeConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DateTimeConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="expressionOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:dateTime"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="BooleanCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" nillable="true" type="tns:BooleanConstraint"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="BooleanConstraint">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="value" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ResultSetBase">
+<xs:complexContent>
+<xs:extension base="s0:AbstractDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="executionStatus" nillable="true" type="tns:ExecutionStatus"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ArrayOfPicklistConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="PicklistConstraint" nillable="true" type="tns:PicklistConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAttributeValueConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AttributeValueConstraint" nillable="true" type="tns:AttributeValueConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfKeyMapping">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="KeyMapping" nillable="true" type="tns:KeyMapping"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfTextConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="TextConstraint" nillable="true" type="tns:TextConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfNameValuePair">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="NameValuePair" nillable="true" type="tns:NameValuePair"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfRecordIdentifierConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="RecordIdentifierConstraint" nillable="true" type="tns:RecordIdentifierConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfBooleanConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="BooleanConstraint" nillable="true" type="tns:BooleanConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFault">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Fault" nillable="true" type="tns:Fault"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfMultilingualText">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="MultilingualText" nillable="true" type="tns:MultilingualText"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfExecutionStatus">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="ExecutionStatus" nillable="true" type="tns:ExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAttributeCriteria">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AttributeCriteria" nillable="true" type="tns:AttributeCriteria"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfNumericConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="NumericConstraint" nillable="true" type="tns:NumericConstraint"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAttributeValue">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AttributeValue" nillable="true" type="tns:AttributeValue"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFieldDefinition">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="FieldDefinition" nillable="true" type="tns:FieldDefinition"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfDateTimeConstraint">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="DateTimeConstraint" nillable="true" type="tns:DateTimeConstraint"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:tns="urn:com.sap.mdm.core.beans" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.mdm.core.beans">
+<xs:complexType name="RepositoryInformation">
+<xs:sequence>
+<xs:element minOccurs="0" name="dataLang" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="destinationName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="repositoryName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="secureConnection" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="serverName" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:s0="urn:com.sap.mdm.core.base" xmlns:s1="urn:com.sap.mdm.ws.beans" xmlns:tns="urn:com.sap.mdm.ws.beans.jsgx_mdm_ficotr" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.mdm.ws.beans.jsgx_mdm_ficotr">
+<xs:import namespace="urn:com.sap.mdm.core.base"/>
+<xs:import namespace="urn:com.sap.mdm.ws.beans"/>
+<xs:complexType name="FinanciaTransactionCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:AccountTypeDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="fIKRS" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="fIPOS" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="bEZEICH" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="bESCHR" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="cOMCAT" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sTATS" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="lVOMA" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="applyReason" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="fIVOR" nillable="true" type="tns:FinanciaTransactionLookup"/>
+<xs:element minOccurs="0" name="kNZAEPO" nillable="true" type="tns:CommitmentItemCategoryLookup"/>
+<xs:element minOccurs="0" name="fICPOS" nillable="true" type="tns:CommitmentltemLookup"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="tns:ApprovalStatusLookup"/>
+<xs:element minOccurs="0" name="applyDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="xs:dateTime"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceRelationshipsTuple" nillable="true" type="tns:ServiceRelationshipsTupleTuple"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="tns:OperationLookup"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentificationWithKeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsTupleTuple">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="rETURN" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="removeTupleValueIndicator" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM" nillable="true" type="tns:ClientLookup"/>
+<xs:element minOccurs="0" name="dISTUS" nillable="true" type="tns:DistributionStatusLookup"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="gUID" nillable="true" type="s1:MultilingualText"/>
+<xs:element minOccurs="0" name="tupleValueId" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="commitmentltem" nillable="true" type="tns:Commitmentltem"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Commitmentltem">
+<xs:complexContent>
+<xs:extension base="tns:CommitmentltemUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="xs:dateTime"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="fIPOS" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Categories">
+<xs:complexContent>
+<xs:extension base="tns:CategoriesUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:ClientDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="fICTR" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:OperationDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="fIKRS" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="fICTR" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="bEZEICH" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="bESCHR" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="lVOMA" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dATAB" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dATBIS" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="tns:ApprovalStatusLookup"/>
+<xs:element minOccurs="0" name="bUKRS" nillable="true" type="tns:CompanyCodeLookup"/>
+<xs:element minOccurs="0" name="applyData" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="xs:dateTime"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceRelationshipsTuple" nillable="true" type="tns:ServiceRelationshipsTupleTuple"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="tns:OperationLookup"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategory">
+<xs:complexContent>
+<xs:extension base="tns:CommitmentItemCategoryUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Operation">
+<xs:complexContent>
+<xs:extension base="tns:OperationUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationships">
+<xs:complexContent>
+<xs:extension base="tns:ServiceRelationshipsUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:CompanyCodeUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:CompanyCodeUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="categories" nillable="true" type="tns:Categories"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:CompanyCodeCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="accounts" nillable="true" type="tns:Accounts"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Accounts">
+<xs:complexContent>
+<xs:extension base="tns:AccountsUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="xs:dateTime"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterUpdate">
+<xs:complexContent>
+<xs:extension base="tns:FundcenterCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:FundcenterID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:FundcenterUniqueConstraint1"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatus">
+<xs:complexContent>
+<xs:extension base="tns:DistributionStatusUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="approvalStatus" nillable="true" type="tns:ApprovalStatus"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatus">
+<xs:complexContent>
+<xs:extension base="tns:ApprovalStatusUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fundcenter" nillable="true" type="tns:Fundcenter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Fundcenter">
+<xs:complexContent>
+<xs:extension base="tns:FundcenterUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="xs:dateTime"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryUpdate">
+<xs:complexContent>
+<xs:extension base="tns:CommitmentItemCategoryCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:CommitmentItemCategoryID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:CommitmentItemCategoryDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusUpdate">
+<xs:complexContent>
+<xs:extension base="tns:DistributionStatusCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:DistributionStatusID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:DistributionStatusUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:DistributionStatusUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:ProductsCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="category" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryAttributeCriteria" nillable="true" type="s1:AttributeCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientUpdate">
+<xs:complexContent>
+<xs:extension base="tns:ClientCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:ClientID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="operation" nillable="true" type="tns:Operation"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceRelationships" nillable="true" type="tns:ServiceRelationships"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusUpdate">
+<xs:complexContent>
+<xs:extension base="tns:ApprovalStatusCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:ApprovalStatusID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:ApprovalStatusUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:ApprovalStatusUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:AccountGroupCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:CommitmentItemCategoryCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:OperationCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="companyCode" nillable="true" type="tns:CompanyCode"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCode">
+<xs:complexContent>
+<xs:extension base="tns:CompanyCodeUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="financiaTransaction" nillable="true" type="tns:FinanciaTransaction"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransaction">
+<xs:complexContent>
+<xs:extension base="tns:FinanciaTransactionUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="s1:MultilingualText"/>
+<xs:element minOccurs="0" name="category" nillable="true" type="tns:CategoriesLookup"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="s1:NameValuePair"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:ProductsDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsDisplayFields">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="s1:NumericCriteria"/>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="fIKRS" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="fICTR" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="bEZEICH" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="bESCHR" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="dATAB" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="dATBIS" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="lVOMA" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="bUKRS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applyData" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleCLIENT_SYSTEM" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleDISTUS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleGUID" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleRETURN" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="s1:PicklistCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:FinanciaTransactionUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:FinanciaTransactionUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:FinanciaTransactionCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionUpdate">
+<xs:complexContent>
+<xs:extension base="tns:FinanciaTransactionCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:FinanciaTransactionID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="sAKNR" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="tXT20_ML" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="tXT50_ML" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="xSPEB" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="applyReason" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="kTOKS" nillable="true" type="tns:AccountGroupLookup"/>
+<xs:element minOccurs="0" name="accountType" nillable="true" type="tns:AccountTypeLookup"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="tns:ApprovalStatusLookup"/>
+<xs:element minOccurs="0" name="applyDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="xs:dateTime"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceRelationshipsTuple" nillable="true" type="tns:ServiceRelationshipsTupleTuple"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="tns:OperationLookup"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeLookup">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="s1:BasicRecordIdentification"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:ServiceRelationshipsUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:ServiceRelationshipsUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM_NAME" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="distributionStatus" nillable="true" type="tns:DistributionStatus"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:CommitmentltemUniqueConstraint1"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CompanyCodeUpdate">
+<xs:complexContent>
+<xs:extension base="tns:CompanyCodeCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:CompanyCodeID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="products" nillable="true" type="tns:Products"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Products">
+<xs:complexContent>
+<xs:extension base="tns:ProductsUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupUpdate">
+<xs:complexContent>
+<xs:extension base="tns:AccountGroupCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:AccountGroupID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:AccountGroupUniqueConstraint1"/>
+<xs:element minOccurs="0" name="uniqueConstraint2" nillable="true" type="tns:AccountGroupUniqueConstraint2"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupUniqueConstraint2">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsUpdate">
+<xs:complexContent>
+<xs:extension base="tns:ServiceRelationshipsCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:ServiceRelationshipsID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:AccountsCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="s1:NumericCriteria"/>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="sAKNR" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="kTOKS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="accountType" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="tXT20_ML" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="tXT50_ML" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="xSPEB" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applyDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="applyReason" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleCLIENT_SYSTEM" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleDISTUS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleGUID" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleRETURN" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="s1:PicklistCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeUpdate">
+<xs:complexContent>
+<xs:extension base="tns:AccountTypeCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:AccountTypeID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesUpdate">
+<xs:complexContent>
+<xs:extension base="tns:CategoriesCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:CategoriesID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="displayFields" nillable="true" type="tns:CategoriesDisplayFields"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:DistributionStatusCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsID">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="internalID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="keyMapping" nillable="true" type="s1:KeyMapping"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="xs:integer"/>
+<xs:element minOccurs="0" name="uniqueConstraint1" nillable="true" type="tns:AccountsUniqueConstraint1"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsUniqueConstraint1">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="sAKNR" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="Client">
+<xs:complexContent>
+<xs:extension base="tns:ClientUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountsUpdate">
+<xs:complexContent>
+<xs:extension base="tns:AccountsCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:AccountsID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="autoID" nillable="true" type="s1:NumericCriteria"/>
+<xs:element minOccurs="0" name="applyNumber" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="fIKRS" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="fIPOS" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="bEZEICH" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="bESCHR" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="fIVOR" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="kNZAEPO" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="fICPOS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="cOMCAT" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="sTATS" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="lVOMA" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="aPCOD" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="aPMEM" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applicant" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applyReason" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="applyDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="applyTime" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="createBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="createDate" nillable="true" type="s1:DateTimeCriteria"/>
+<xs:element minOccurs="0" name="updateBy" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="updateDate" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="dATAC" nillable="true" type="s1:BooleanCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleCLIENT_SYSTEM" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleDISTUS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleGUID" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="serviceRelationshipsTupleRETURN" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="operation" nillable="true" type="s1:PicklistCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroup">
+<xs:complexContent>
+<xs:extension base="tns:AccountGroupUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:ClientCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="client" nillable="true" type="tns:Client"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ApprovalStatusQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:ApprovalStatusCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentItemCategoryResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="commitmentItemCategory" nillable="true" type="tns:CommitmentItemCategory"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="s1:MultilingualText"/>
+<xs:element minOccurs="0" name="parent" nillable="true" type="tns:CategoriesID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountGroupResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="accountGroup" nillable="true" type="tns:AccountGroup"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM_NAME" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dGUID" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="rETURN" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cLIENT_SYSTEM" nillable="true" type="s1:MultilingualText"/>
+<xs:element minOccurs="0" name="dISTUS" nillable="true" type="tns:DistributionStatusLookup"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountType">
+<xs:complexContent>
+<xs:extension base="tns:AccountTypeUpdate">
+<xs:sequence>
+<xs:element minOccurs="0" name="displayValue" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="checkoutStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="isProtected" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="cLIENT_SYSTEM_NAME" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="dISTUS" nillable="true" type="s1:PicklistCriteria"/>
+<xs:element minOccurs="0" name="dGUID" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="rETURN" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CategoriesQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:CategoriesCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeResultSet">
+<xs:complexContent>
+<xs:extension base="s1:ResultSetBase">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="accountType" nillable="true" type="tns:AccountType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FinanciaTransactionCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:CommitmentltemCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ServiceRelationshipsQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:ServiceRelationshipsCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="OperationUpdate">
+<xs:complexContent>
+<xs:extension base="tns:OperationCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:OperationID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="DistributionStatusCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:AccountTypeCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeCriteria">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="namedSearchCriteria" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="maskCriteria" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="logicalOperator" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="keywordCriteria" nillable="true" type="s1:KeywordConstraint"/>
+<xs:element minOccurs="0" name="code" nillable="true" type="s1:TextCriteria"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="s1:TextCriteria"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="FundcenterQuery">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteria" nillable="true" type="tns:FundcenterCriteria"/>
+<xs:element minOccurs="0" name="resultDefinition" nillable="true" type="s1:ResultDefinition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ProductsUpdate">
+<xs:complexContent>
+<xs:extension base="tns:ProductsCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:ProductsID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="CommitmentltemUpdate">
+<xs:complexContent>
+<xs:extension base="tns:CommitmentltemCreate">
+<xs:sequence>
+<xs:element minOccurs="0" name="recordIdentification" nillable="true" type="tns:CommitmentltemID"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ClientCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="AccountTypeCreate">
+<xs:complexContent>
+<xs:extension base="s0:AbstractMdmDataObject">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ArrayOfAccountType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AccountType" nillable="true" type="tns:AccountType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCommitmentltemCreate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="CommitmentltemCreate" nillable="true" type="tns:CommitmentltemCreate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAccountsCreate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AccountsCreate" nillable="true" type="tns:AccountsCreate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAccounts">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Accounts" nillable="true" type="tns:Accounts"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCategories">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Categories" nillable="true" type="tns:Categories"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFinanciaTransaction">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="FinanciaTransaction" nillable="true" type="tns:FinanciaTransaction"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCompanyCode">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="CompanyCode" nillable="true" type="tns:CompanyCode"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfApprovalStatus">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="ApprovalStatus" nillable="true" type="tns:ApprovalStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfClient">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Client" nillable="true" type="tns:Client"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfProducts">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Products" nillable="true" type="tns:Products"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFundcenterCreate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="FundcenterCreate" nillable="true" type="tns:FundcenterCreate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCommitmentItemCategory">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="CommitmentItemCategory" nillable="true" type="tns:CommitmentItemCategory"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFundcenter">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Fundcenter" nillable="true" type="tns:Fundcenter"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAccountsUpdate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AccountsUpdate" nillable="true" type="tns:AccountsUpdate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfOperation">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Operation" nillable="true" type="tns:Operation"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCommitmentltemUpdate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="CommitmentltemUpdate" nillable="true" type="tns:CommitmentltemUpdate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfServiceRelationships">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="ServiceRelationships" nillable="true" type="tns:ServiceRelationships"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfAccountGroup">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AccountGroup" nillable="true" type="tns:AccountGroup"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfServiceRelationshipsTupleTuple">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="ServiceRelationshipsTupleTuple" nillable="true" type="tns:ServiceRelationshipsTupleTuple"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfFundcenterUpdate">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="FundcenterUpdate" nillable="true" type="tns:FundcenterUpdate"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfDistributionStatus">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="DistributionStatus" nillable="true" type="tns:DistributionStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ArrayOfCommitmentltem">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="Commitmentltem" nillable="true" type="tns:Commitmentltem"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:s0="urn:com.sap.mdm.ws.beans.jsgx_mdm_ficotr" xmlns:s1="urn:com.sap.mdm.core.beans" xmlns:s2="urn:com.sap.mdm.ws.beans" xmlns:tns="urn:JSGX_MDM_FICOTRVi" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:JSGX_MDM_FICOTRVi">
+<xs:import namespace="urn:com.sap.mdm.core.beans"/>
+<xs:import namespace="urn:com.sap.mdm.ws.beans"/>
+<xs:import namespace="urn:com.sap.mdm.ws.beans.jsgx_mdm_ficotr"/>
+<xs:element name="searchAccountGroup">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:AccountGroupQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchAccountGroupResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:AccountGroupResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchAccountType">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:AccountTypeQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchAccountTypeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:AccountTypeResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createAccounts">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="accounts" nillable="true" type="s0:ArrayOfAccountsCreate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:CreateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createAccountsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateAccounts">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Accounts" nillable="true" type="s0:ArrayOfAccountsUpdate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:UpdateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateAccountsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchAccounts">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:AccountsQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchAccountsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:AccountsResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchApprovalStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:ApprovalStatusQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchApprovalStatusResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:ApprovalStatusResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCategories">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:CategoriesQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCategoriesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:CategoriesResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchClient">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:ClientQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchClientResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:ClientResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCommitmentItemCategory">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:CommitmentItemCategoryQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCommitmentItemCategoryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:CommitmentItemCategoryResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createCommitmentltem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="commitmentltem" nillable="true" type="s0:ArrayOfCommitmentltemCreate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:CreateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createCommitmentltemResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateCommitmentltem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Commitmentltem" nillable="true" type="s0:ArrayOfCommitmentltemUpdate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:UpdateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateCommitmentltemResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCommitmentltem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:CommitmentltemQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCommitmentltemResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:CommitmentltemResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCompanyCode">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:CompanyCodeQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchCompanyCodeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:CompanyCodeResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchDistributionStatus">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:DistributionStatusQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchDistributionStatusResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:DistributionStatusResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchFinanciaTransaction">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:FinanciaTransactionQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchFinanciaTransactionResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:FinanciaTransactionResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createFundcenter">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="fundcenter" nillable="true" type="s0:ArrayOfFundcenterCreate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:CreateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="createFundcenterResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateFundcenter">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Fundcenter" nillable="true" type="s0:ArrayOfFundcenterUpdate"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+<xs:element name="configurationParameters" nillable="true" type="s2:UpdateConfigurationParameters"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateFundcenterResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s2:ArrayOfExecutionStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchFundcenter">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:FundcenterQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchFundcenterResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:FundcenterResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchOperation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:OperationQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchOperationResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:OperationResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchProducts">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:ProductsQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchProductsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:ProductsResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchServiceRelationships">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="query" nillable="true" type="s0:ServiceRelationshipsQuery"/>
+<xs:element name="reposInfo" nillable="true" type="s1:RepositoryInformation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="searchServiceRelationshipsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Response" nillable="true" type="s0:ServiceRelationshipsResultSet"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+<xs:schema xmlns:tns="urn:com.sap.mdm.core.base" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.mdm.core.base">
+<xs:complexType name="AbstractDataObject">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="AbstractMdmDataObject">
+<xs:complexContent>
+<xs:extension base="tns:AbstractDataObject">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="searchAccountGroupIn_doc">
+<wsdl:part element="ns0:searchAccountGroup" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchAccountGroupOut_doc">
+<wsdl:part element="ns0:searchAccountGroupResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchAccountTypeIn_doc">
+<wsdl:part element="ns0:searchAccountType" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchAccountTypeOut_doc">
+<wsdl:part element="ns0:searchAccountTypeResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createAccountsIn_doc">
+<wsdl:part element="ns0:createAccounts" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createAccountsOut_doc">
+<wsdl:part element="ns0:createAccountsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateAccountsIn_doc">
+<wsdl:part element="ns0:updateAccounts" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateAccountsOut_doc">
+<wsdl:part element="ns0:updateAccountsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchAccountsIn_doc">
+<wsdl:part element="ns0:searchAccounts" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchAccountsOut_doc">
+<wsdl:part element="ns0:searchAccountsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchApprovalStatusIn_doc">
+<wsdl:part element="ns0:searchApprovalStatus" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchApprovalStatusOut_doc">
+<wsdl:part element="ns0:searchApprovalStatusResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCategoriesIn_doc">
+<wsdl:part element="ns0:searchCategories" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCategoriesOut_doc">
+<wsdl:part element="ns0:searchCategoriesResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchClientIn_doc">
+<wsdl:part element="ns0:searchClient" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchClientOut_doc">
+<wsdl:part element="ns0:searchClientResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCommitmentItemCategoryIn_doc">
+<wsdl:part element="ns0:searchCommitmentItemCategory" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCommitmentItemCategoryOut_doc">
+<wsdl:part element="ns0:searchCommitmentItemCategoryResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createCommitmentltemIn_doc">
+<wsdl:part element="ns0:createCommitmentltem" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createCommitmentltemOut_doc">
+<wsdl:part element="ns0:createCommitmentltemResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateCommitmentltemIn_doc">
+<wsdl:part element="ns0:updateCommitmentltem" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateCommitmentltemOut_doc">
+<wsdl:part element="ns0:updateCommitmentltemResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCommitmentltemIn_doc">
+<wsdl:part element="ns0:searchCommitmentltem" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCommitmentltemOut_doc">
+<wsdl:part element="ns0:searchCommitmentltemResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCompanyCodeIn_doc">
+<wsdl:part element="ns0:searchCompanyCode" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchCompanyCodeOut_doc">
+<wsdl:part element="ns0:searchCompanyCodeResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchDistributionStatusIn_doc">
+<wsdl:part element="ns0:searchDistributionStatus" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchDistributionStatusOut_doc">
+<wsdl:part element="ns0:searchDistributionStatusResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchFinanciaTransactionIn_doc">
+<wsdl:part element="ns0:searchFinanciaTransaction" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchFinanciaTransactionOut_doc">
+<wsdl:part element="ns0:searchFinanciaTransactionResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createFundcenterIn_doc">
+<wsdl:part element="ns0:createFundcenter" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createFundcenterOut_doc">
+<wsdl:part element="ns0:createFundcenterResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateFundcenterIn_doc">
+<wsdl:part element="ns0:updateFundcenter" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateFundcenterOut_doc">
+<wsdl:part element="ns0:updateFundcenterResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchFundcenterIn_doc">
+<wsdl:part element="ns0:searchFundcenter" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchFundcenterOut_doc">
+<wsdl:part element="ns0:searchFundcenterResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchOperationIn_doc">
+<wsdl:part element="ns0:searchOperation" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchOperationOut_doc">
+<wsdl:part element="ns0:searchOperationResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchProductsIn_doc">
+<wsdl:part element="ns0:searchProducts" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchProductsOut_doc">
+<wsdl:part element="ns0:searchProductsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchServiceRelationshipsIn_doc">
+<wsdl:part element="ns0:searchServiceRelationships" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="searchServiceRelationshipsOut_doc">
+<wsdl:part element="ns0:searchServiceRelationshipsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:portType name="JSGX_MDM_FICOTRVi">
+<wsdl:operation name="searchAccountGroup">
+<wsdl:input message="tns:searchAccountGroupIn_doc"/>
+<wsdl:output message="tns:searchAccountGroupOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchAccountType">
+<wsdl:input message="tns:searchAccountTypeIn_doc"/>
+<wsdl:output message="tns:searchAccountTypeOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="createAccounts">
+<wsdl:input message="tns:createAccountsIn_doc"/>
+<wsdl:output message="tns:createAccountsOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="updateAccounts">
+<wsdl:input message="tns:updateAccountsIn_doc"/>
+<wsdl:output message="tns:updateAccountsOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchAccounts">
+<wsdl:input message="tns:searchAccountsIn_doc"/>
+<wsdl:output message="tns:searchAccountsOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchApprovalStatus">
+<wsdl:input message="tns:searchApprovalStatusIn_doc"/>
+<wsdl:output message="tns:searchApprovalStatusOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchCategories">
+<wsdl:input message="tns:searchCategoriesIn_doc"/>
+<wsdl:output message="tns:searchCategoriesOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchClient">
+<wsdl:input message="tns:searchClientIn_doc"/>
+<wsdl:output message="tns:searchClientOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchCommitmentItemCategory">
+<wsdl:input message="tns:searchCommitmentItemCategoryIn_doc"/>
+<wsdl:output message="tns:searchCommitmentItemCategoryOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="createCommitmentltem">
+<wsdl:input message="tns:createCommitmentltemIn_doc"/>
+<wsdl:output message="tns:createCommitmentltemOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="updateCommitmentltem">
+<wsdl:input message="tns:updateCommitmentltemIn_doc"/>
+<wsdl:output message="tns:updateCommitmentltemOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchCommitmentltem">
+<wsdl:input message="tns:searchCommitmentltemIn_doc"/>
+<wsdl:output message="tns:searchCommitmentltemOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchCompanyCode">
+<wsdl:input message="tns:searchCompanyCodeIn_doc"/>
+<wsdl:output message="tns:searchCompanyCodeOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchDistributionStatus">
+<wsdl:input message="tns:searchDistributionStatusIn_doc"/>
+<wsdl:output message="tns:searchDistributionStatusOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchFinanciaTransaction">
+<wsdl:input message="tns:searchFinanciaTransactionIn_doc"/>
+<wsdl:output message="tns:searchFinanciaTransactionOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="createFundcenter">
+<wsdl:input message="tns:createFundcenterIn_doc"/>
+<wsdl:output message="tns:createFundcenterOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="updateFundcenter">
+<wsdl:input message="tns:updateFundcenterIn_doc"/>
+<wsdl:output message="tns:updateFundcenterOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchFundcenter">
+<wsdl:input message="tns:searchFundcenterIn_doc"/>
+<wsdl:output message="tns:searchFundcenterOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchOperation">
+<wsdl:input message="tns:searchOperationIn_doc"/>
+<wsdl:output message="tns:searchOperationOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchProducts">
+<wsdl:input message="tns:searchProductsIn_doc"/>
+<wsdl:output message="tns:searchProductsOut_doc"/>
+</wsdl:operation>
+<wsdl:operation name="searchServiceRelationships">
+<wsdl:input message="tns:searchServiceRelationshipsIn_doc"/>
+<wsdl:output message="tns:searchServiceRelationshipsOut_doc"/>
+</wsdl:operation>
+</wsdl:portType>
+</wsdl:definitions>
